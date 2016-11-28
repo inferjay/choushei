@@ -4,7 +4,7 @@
 
 ## 抽奖效果
 
-![](https://github.com/GDGZhengzhou/choushei/blob/master/img.gif)
+![](https://raw.githubusercontent.com/GDGZhengzhou/choushei/master/choushei.gif)
 
 ## Feature TODO List
 
