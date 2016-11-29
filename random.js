@@ -51,6 +51,6 @@ $(function() {
 
     document.onkeydown = function enter(e) {
         var e = e || event;
-        if (e.keyCode == 13) $("#start").trigger("click");
+        if (e.keyCode == 13 || e.keyCode == 32) $("#start").trigger("click");
     };
 });
