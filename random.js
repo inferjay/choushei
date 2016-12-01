@@ -31,7 +31,9 @@ $(function() {
                 50);
             run = 1;
         } else {
-            ++position;
+            if (list.length > 0) {
+                ++position;
+            }
             $.each(list,
                 function(index, item) {
                     if (item == who) {
@@ -47,6 +49,24 @@ $(function() {
             clearInterval(timer);
             run = 0;
         };
+    });
+
+    $("#btn_add").click(function() {
+        if ($("#add_div").css('display') == 'none') {
+            $("#add_div").show();
+        }else{
+            $("#add_div").hide();
+        }
+    });
+
+    $("#add_action").click(function(){
+        var name = $("#input_value").val();
+        if (name.length != 0) {
+            list.push(name);
+            alert("添加成功");
+            $("#add_div").hide();
+        }
+
     });
 
     document.onkeydown = function enter(e) {
