@@ -2,13 +2,20 @@ $(function() {
     var run = 0,
         who, heading = $("h1"),
         timer,
-        position = 0;
-    var list = $("#list").val().replace(/ +/g, " ").replace(/^ | $/g, "").split(" ");
+        position = 0,
+        getNameText = function() {
+            return $("#list").val().replace(/ +/g, " ").replace(/^ | $/g, "");
+        },
+        showAddDataMsg = function() {
+            mdui.snackbar({
+              message: '😽 请添加抽奖数据！'
+            });
+        };
+
+    var list = getNameText().length > 0 ? getNameText().split(" ") : [];
     $("#start").click(function() {
         if (list.length == 0) {
-            mdui.snackbar({
-              message: '😽 请添加被抽奖人员姓名'
-            });
+            showAddDataMsg();
             return;
         }
         if (!run) {
@@ -40,12 +47,11 @@ $(function() {
             if (list.length > 0) {
                 ++position;
             }
-            $.each(list,
-                function(index, item) {
+            $.each(list, function(index, item) {
                     if (item == who) {
                         list.splice(index, 1);
                     }
-                });
+            });
             if (typeof(who) != 'undefined') {
                 $("#prize").append("<p>").append(position + ":" + who).append("</p>");
             }
@@ -58,17 +64,14 @@ $(function() {
     });
 
     $("#add_action").click(function(){
-        var name = $("#list").val();
-        if (name.length != 0) {
-            var names = name.replace(/ +/g, " ").replace(/^ | $/g, "").split(" ");
-            if (names.length > 0) {
-                list = list.concat(names);
-            } else {
-                list.push(name);
-            }
+        var names = getNameText().split(" ");
+        if (names.length > 0) {
+            list = list.concat(names);
             mdui.snackbar({
-              message: '🐱 添加成功！'
+                message: '🐱 添加成功！'
             });
+        } else {
+            showAddDataMsg();
         }
     });
 
