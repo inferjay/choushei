@@ -46,7 +46,6 @@ body {
     height: 40px;
     + margin-left: 260px;
     vertical-align: middle;
-    font-family: "微软雅黑";
     cursor: pointer;
 }
 
@@ -89,4 +88,12 @@ body {
     cursor: pointer;
     width: 50px;
     height: 22px;
+}
+
+.btn_add {
+    position: fixed; bottom: 0px; right: 0px; margin-right: 50px; margin-bottom: 50px;
+}
+
+.btn_clear {
+    position: fixed; bottom: 0px; right: 140px; margin-right: 50px; margin-bottom: 50px;
 }

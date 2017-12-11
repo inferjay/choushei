@@ -6,12 +6,14 @@
     <title>抽谁</title>
     <meta name="keywords" content="奖品抽给谁 抽谁" />
     <meta name="description" content="奖品抽给谁 抽谁" />
+    <link rel="stylesheet" type="text/css" href="assets/css/mdui.min.css">
+    <script type="text/javascript" src="assets/js/mdui.min.js"></script>
     <link rel="stylesheet" href="default.css">
 </head>
 <script src="jquery-1.6.4.min.js"></script>
 <script src="random.js"></script>
 
-<body>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-loaded">
     <a href="https://github.com/GDGZhengzhou/choushei/" class="github-corner" title="View source on Github" target="_blank">
         <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true" style="fill: rgb(38, 48, 83); color: rgb(255, 255, 255); position: absolute; top: 0px; border: 0px; right: 0px;">
             <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -26,16 +28,24 @@
         <h1>
 			奖品抽给谁，抽谁？ <br> <br> <b style="color: #FF9733" id="what"></b>
 		</h1>
-        <input type="button" value="开始" id="start" />
+        <input class="mdui-btn mdui-btn-raised mdui-ripple" type="button" value="开始" id="start" />
     </div>
-    <textarea rows="9" cols="53" id="list" style="display: none">
-        张三 李四 王五 小明 小红 小绿 小黄
-    </textarea>
-    <div id="add_div" style="display: none; position: fixed; bottom: 0px; right: 0px; margin-bottom: 10px; float: left;">
-        <input value="" id="input_value" style="margin-right: 5px;" /><button id="add_action">添加</button>
+    <div class="mdui-dialog" id="addDialog">
+    <div class="mdui-dialog-title">添加抽奖人员</div>
+      <div class="mdui-dialog-content">
+            <div class="mdui-textfield mdui-textfield-floating-label">
+              <label class="mdui-textfield-label">请输入被抽奖人员姓名，中间用空格隔开</label>
+              <textarea class="mdui-textfield-input" id="list"></textarea>
+            </div>
+      </div>
+      <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
+        <button class="mdui-btn mdui-ripple" mdui-dialog-confirm id="add_action">添加</button>
+      </div>
     </div>
 
-    <button id="btn_add" style="position: fixed; bottom: 0px; right: 0px; margin-right: 50px; margin-bottom: 50px; width: 120px; height: 40px;">添加抽奖人员</button>
+    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent btn_add" mdui-dialog="{target: '#addDialog'}">添加被抽奖人员</button>
+    <button class="mdui-btn mdui-btn-raised mdui-ripple btn_clear">清空被抽奖人员</button>
 </body>
 
 </html>

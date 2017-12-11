@@ -5,6 +5,12 @@ $(function() {
         position = 0;
     var list = $("#list").val().replace(/ +/g, " ").replace(/^ | $/g, "").split(" ");
     $("#start").click(function() {
+        if (list.length == 0) {
+            mdui.snackbar({
+              message: '😽 请添加被抽奖人员姓名'
+            });
+            return;
+        }
         if (!run) {
             heading.html(heading.html().replace("就是他！", "抽谁？"));
             $(this).val("停止");
@@ -51,26 +57,35 @@ $(function() {
         };
     });
 
-    $("#btn_add").click(function() {
-        if ($("#add_div").css('display') == 'none') {
-            $("#add_div").show();
-        }else{
-            $("#add_div").hide();
-        }
-    });
-
     $("#add_action").click(function(){
-        var name = $("#input_value").val();
+        var name = $("#list").val();
         if (name.length != 0) {
-            list.push(name);
-            alert("添加成功");
-            $("#add_div").hide();
+            var names = name.replace(/ +/g, " ").replace(/^ | $/g, "").split(" ");
+            if (names.length > 0) {
+                list = list.concat(names);
+            } else {
+                list.push(name);
+            }
+            mdui.snackbar({
+              message: '🐱 添加成功！'
+            });
         }
-
     });
 
+    $('.btn_clear').click(function() {
+        if (!run) {
+            $("#list").text("");
+            $("#what").text("");
+            $("#start").val("开始");
+            list = [];
+        } else {
+            mdui.snackbar({
+              message: '😨 正在抽奖不能清空！'
+            });
+        }
+    });
     document.onkeydown = function enter(e) {
         var e = e || event;
-        if (e.keyCode == 13 || e.keyCode == 32) $("#start").trigger("click");
+        if (e.keyCode == 13 || e.keyCode == 32 && !$("#addDialog").is(":visible")) $("#start").trigger("click");
     };
 });
