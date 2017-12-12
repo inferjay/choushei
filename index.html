@@ -43,9 +43,18 @@
         <button class="mdui-btn mdui-ripple" mdui-dialog-confirm id="add_action">添加</button>
       </div>
     </div>
-
-    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent btn_add" mdui-dialog="{target: '#addDialog'}">添加抽奖数据</button>
-    <button class="mdui-btn mdui-btn-raised mdui-ripple btn_clear">清空抽奖数据</button>
+    <div class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}" id="fab-settings">
+        <button class="mdui-fab mdui-ripple mdui-color-pink-accent">
+          <i class="mdui-icon material-icons">settings</i>
+          <i class="mdui-icon mdui-fab-opened material-icons">mode_edit</i>
+        </button>
+        <div class="mdui-fab-dial">
+          <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" id="btn-add-data" mdui-tooltip="{content: '添加抽奖数据', position: 'left'}" mdui-dialog="{target: '#addDialog'}"><i class="mdui-icon material-icons">add</i>
+          </button>
+          <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-red-a700" id="btn-clear-all" mdui-tooltip="{content: '清空抽奖数据', position: 'left'}"><i class="mdui-icon material-icons">clear_all</i>
+          </button>
+        </div>
+    </div>
 </body>
 
 </html>
