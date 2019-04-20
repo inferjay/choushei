@@ -6,7 +6,7 @@
 
 ![](https://raw.githubusercontent.com/GDGZhengzhou/choushei/master/choushei.gif)
 
-## Feature TODO List
+## TODO
 
 - [x] 在顶部左侧或者右侧显示中奖人的列表
 - [x] 将中奖人从被抽奖列表中移除
@@ -16,7 +16,7 @@
 
 ## 贡献代码
 
-欢迎实现 `Feature TODO List` 里的功能来贡献代码:)
+欢迎实现 `TODO` 列表里的功能来贡献代码:)
 
 贡献步骤：
 
@@ -24,7 +24,8 @@
 2. 实现功能并提交代码到自己的仓库
 3. 发送 `Pull Request`
 
-**注意：** 为保持代码风格的一致性，请先安装 [Sublime Text 3](http://www.sublimetext.com/3) 文本编辑器和它的一个代码格式化插件 [HTML-CSS-JS Prettify](https://github.com/victorporof/Sublime-HTMLPrettify)，然后用[Sublime Text 3](http://www.sublimetext.com/3) 来写代码并用 [HTML-CSS-JS Prettify](https://github.com/victorporof/Sublime-HTMLPrettify) 来格式化代码
+> 
+> **注意：** 为保持代码风格的一致性，请先安装 [Sublime Text 3](http://www.sublimetext.com/3) 文本编辑器和它的一个代码格式化插件 [HTML-CSS-JS Prettify](https://github.com/victorporof/Sublime-HTMLPrettify)，然后用[Sublime Text 3](http://www.sublimetext.com/3) 来写代码并用 [HTML-CSS-JS Prettify](https://github.com/victorporof/Sublime-HTMLPrettify) 来格式化代码
 
 ## 协议
 
