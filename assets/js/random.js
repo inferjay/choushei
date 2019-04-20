@@ -8,7 +8,8 @@ $(function() {
         },
         showAddDataMsg = function() {
             mdui.snackbar({
-                message: '😽 请添加抽奖数据！'
+                message: '😽 请添加抽奖数据！',
+                position: 'left-bottom'
             });
         },
         showWinner = function() {
@@ -21,7 +22,10 @@ $(function() {
                 }
             });
             if (typeof(who) != 'undefined') {
-                $("#prize").append("<p>").append(position + ":" + who).append("</p>");
+                if (!$("#prize-text").is(":visible")) {
+                    $("#prize-text").addClass("show");
+                }
+                $("#prize-list").append("<p>").append(position + ". " + who).append("</p>");
             }
 
             heading.html(heading.html().replace("抽谁？", "就是他！"));
@@ -35,6 +39,7 @@ $(function() {
         if (list.length == 0) {
             showAddDataMsg();
             $("#start").val("开始");
+            $("#what").val("");
             return;
         }
         if (!run) {
@@ -72,7 +77,8 @@ $(function() {
         if (names.length > 0) {
             list = list.concat(names);
             mdui.snackbar({
-                message: '🐱 添加成功！'
+                message: '🐱 添加成功！',
+                position: 'left-bottom'
             });
         } else {
             showAddDataMsg();
@@ -91,11 +97,12 @@ $(function() {
             message = '😨 正在抽奖不能清空！';
         }
         mdui.snackbar({
-            message: message
+            message: message,
+            position: 'left-bottom'
         });
     });
     document.onkeydown = function enter(e) {
-        if (e.keyCode == 13 || e.keyCode == 32 && !$("#addDialog").is(":visible")) {
+        if (e.keyCode == 13 || e.keyCode == 32 && !$("#add-dialog").is(":visible")) {
             if (!run) {
                 $("#start").trigger("click");
             } else {
