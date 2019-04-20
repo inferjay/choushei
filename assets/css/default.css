@@ -13,7 +13,7 @@ body {
 }
 
 #logo img {
-    width: 8em;
+    width: 6.5em;
     margin: 3em;
 }
 
@@ -53,45 +53,10 @@ body {
     cursor: pointer;
 }
 
-#cfg {
-    color: #666;
-    text-shadow: 1px 1px 1px #eee;
-    font-size: 12px;
-    cursor: pointer;
-}
-
 .temp {
     position: absolute;
     z-index: -1;
     color: #777;
-}
-
-#popbox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -140px;
-    margin-left: -210px;
-    padding: 0 10px;
-    width: 400px;
-    height: 280px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    border-radius: 7px;
-    background: #fff;
-    -webkit-box-shadow: 0 0 22px #333, inset 0 -3px 7px #DDD;
-    -moz-box-shadow: 0 0 22px #333, inset 0 -3px 7px #DDD;
-    box-shadow: 0 0 22px #333, inset 0 -3px 7px #DDD;
-    border: 1px solid #666;
-}
-
-#ok {
-    float: right;
-    margin: -3px 0 0;
-    color: #666;
-    cursor: pointer;
-    width: 50px;
-    height: 22px;
 }
 
 footer {
@@ -113,11 +78,16 @@ footer a {
     color: #34A853;
 }
 
+footer a:hover {
+    padding-bottom: 2px;
+    border-bottom: solid 1.5px #34A853;
+}
+
 .loop-span {
     display: inline-block;
     font-size: 12px;
-    line-height: 20px;
-    height: 20px;
+    line-height: 24px;
+    height: 24px;
     overflow: hidden;
     position: relative;
     width: 64px;
