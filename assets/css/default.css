@@ -18,8 +18,9 @@ body {
 }
 
 #prize {
-    margin-top: 50px;
+    margin-top: -30px;
     margin-left: 50px;
+    float: left;
 }
 
 #what {
@@ -30,9 +31,10 @@ body {
 
 #wrapper {
     margin-top: 15%;
-    width: 100%;
+    width: 50%;
     height: 100%;
     text-align: center;
+    clear: right;
 }
 
 #wrapper h1 {
