@@ -8,18 +8,37 @@ $(function() {
         },
         showAddDataMsg = function() {
             mdui.snackbar({
-              message: '😽 请添加抽奖数据！'
+                message: '😽 请添加抽奖数据！'
             });
+        },
+        showWinner = function() {
+            if (list.length > 0) {
+                ++position;
+            }
+            $.each(list, function(index, item) {
+                if (item == who) {
+                    list.splice(index, 1);
+                }
+            });
+            if (typeof(who) != 'undefined') {
+                $("#prize").append("<p>").append(position + ":" + who).append("</p>");
+            }
+
+            heading.html(heading.html().replace("抽谁？", "就是他！"));
+            $("#start").val("继续抽奖");
+            clearInterval(timer);
+            run = 0;
         };
 
     var list = getDataText().length > 0 ? getDataText().split(" ") : [];
     $("#start").click(function() {
         if (list.length == 0) {
             showAddDataMsg();
+            $("#start").val("开始");
             return;
         }
         if (!run) {
-            heading.html(heading.html().replace("就是他！", "抽谁？"));
+            heading.html(heading.html().replace("就是他！", "抽谁呢？"));
             $(this).val("停止");
             timer = setInterval(function() {
                     var r = Math.ceil(Math.random() * list.length);
@@ -44,26 +63,11 @@ $(function() {
                 50);
             run = 1;
         } else {
-            if (list.length > 0) {
-                ++position;
-            }
-            $.each(list, function(index, item) {
-                    if (item == who) {
-                        list.splice(index, 1);
-                    }
-            });
-            if (typeof(who) != 'undefined') {
-                $("#prize").append("<p>").append(position + ":" + who).append("</p>");
-            }
-
-            heading.html(heading.html().replace("抽谁？", "就是他！"));
-            $(this).val("不行，换一个");
-            clearInterval(timer);
-            run = 0;
+            showWinner();
         };
     });
 
-    $("#add_action").click(function(){
+    $("#add_action").click(function() {
         var names = getDataText().split(" ");
         if (names.length > 0) {
             list = list.concat(names);
@@ -87,11 +91,16 @@ $(function() {
             message = '😨 正在抽奖不能清空！';
         }
         mdui.snackbar({
-              message: message
+            message: message
         });
     });
     document.onkeydown = function enter(e) {
-        var e = e || event;
-        if (e.keyCode == 13 || e.keyCode == 32 && !$("#addDialog").is(":visible")) $("#start").trigger("click");
+        if (e.keyCode == 13 || e.keyCode == 32 && !$("#addDialog").is(":visible")) {
+            if (!run) {
+                $("#start").trigger("click");
+            } else {
+                showWinner();
+            }
+        }
     };
 });
